@@ -8,7 +8,7 @@ date: ""
 output:
   html_document: 
     number_sections: true
-    theme: lumen
+    theme: default
     highlight: haddock 
     # code_folding: show
     toc: yes
@@ -78,7 +78,7 @@ Bu paketlerin yanı sıra Tidyverse yaklaşımıyla uyumla çok sayıda R paketi
 
 -   Bir düzenli (tidy) veri seti standart dikdörtgensel yapıya sahiptir. Ancak sütunlar değişkenleri, satırlar ise gözlemleri göstermelidir. Her veri seti düzenli formatta olmayabilir. Veri analizinden önce düzenli hale getirilmesi gerekebilir.
 
-![Düzenli (tidy) bir veri setinin yapısı (kaynak: \[R for Data Science\]<https://r4ds.had.co.nz/tidy-data.html>)](img/tidy.png)
+![Düzenli (tidy) bir veri setinin yapısı (kaynak: R for Data Science, <https://r4ds.had.co.nz/tidy-data.html>)](img/tidy.png)
 
 Örnek olarak aşağıdaki veri setini düşünelim:
 

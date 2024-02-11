@@ -8,7 +8,7 @@ date: ""
 output:
   html_document: 
     number_sections: true
-    theme: lumen
+    theme: default
     highlight: haddock 
     # code_folding: show
     toc: yes
@@ -60,7 +60,6 @@ Ancak standart R arayüzü ile kod yazmak, proje hazırlamak ve yönetmek kolay 
 2. [RStudio](https://rstudio.com/) sitesine giderek sisteminize en uygun programı kurunuz. 
 
 
-![](img/RStudio5.PNG)
 <br/>
 Her iki program da özgür (free) programdır. `RStudio` sadece bir arayüzden daha fazlasını sunmaktadır. 
 
@@ -68,13 +67,16 @@ Her iki program da özgür (free) programdır. `RStudio` sadece bir arayüzden d
 
 `RStudio` programını çalıştırdığımızda karşımıza dört pencere çıkmaktadır. 
 
-A penceresi: Sol altta yer alana komut satırı (console) ile programı kullanmaya başlayabiliriz. Konsolun yanındaki sekmeler terminal, arkaplan işleri ve R Markdown gibi diğer RStudio özelliklerine erişim için kullanılır. Ayrıca hata mesajları ve uyarılar da bu pencerede görülür. 
 
-B penceresi: Sol üst tarafta yer alan pencere dosya düzenleyicisidir. Bu alanda çeşitli dokümanlar oluşturabilir, komutları bir `R script` dosyası içinde düzenleyebilir ve kaydedebiliriz. Editör, kod tamamlama, sözdizimi vurgulama ve kod parçalarını yürütme gibi özelliklere sahiptir. Örneğin, uzantısı `.R` olan bir kod dosyası (script) oluşturmak için `File > New File > R script` adımlarını takip edebilirsiniz. New file altında çok sayıda dosya biçimi dikkatinizi çekmiştir. Örneğin bu kitap `R Quarto` dosya biçimi (`.qmd` uzantılı) ile oluşturulmuştur. 
+![](img/RStudio5.PNG)
 
-C penceresi: `RStudio` programının sağ üst kısmındaki pencerede mevcut çalışma oturumuna ilişkin çeşitli bilgiler, veri kümeleri ve fonksiyonlar yer almaktadır (Environment, History). Burada hafızada yer alan nesnelerin bir listesi ve özellikleri ile geçmiş komutların bir listesi yer almaktadır. Burada "n" ve "z" isimli iki değişkenin tanımlandığını görebiliriz. 
+**A** penceresi: Sol altta yer alana komut satırı (console) ile programı kullanmaya başlayabiliriz. Konsolun yanındaki sekmeler terminal, arkaplan işleri ve R Markdown gibi diğer RStudio özelliklerine erişim için kullanılır. Ayrıca hata mesajları ve uyarılar da bu pencerede görülür. 
 
-D penceresi: Sağ alt pencerede ise farklı sekmelerde dosyaların bir listesi ve özellikleri, oluşturulan grafikler, aktif olan paketlerin listesi, yardım dosyaları ve diğer bilgiler yer almaktadır.  
+**B** penceresi: Sol üst tarafta yer alan pencere dosya düzenleyicisidir. Bu alanda çeşitli dokümanlar oluşturabilir, komutları bir `R script` dosyası içinde düzenleyebilir ve kaydedebiliriz. Editör, kod tamamlama, sözdizimi vurgulama ve kod parçalarını yürütme gibi özelliklere sahiptir. Örneğin, uzantısı `.R` olan bir kod dosyası (script) oluşturmak için `File > New File > R script` adımlarını takip edebilirsiniz. 
+
+**C** penceresi: `RStudio` programının sağ üst kısmındaki pencerede mevcut çalışma oturumuna ilişkin çeşitli bilgiler, veri kümeleri ve fonksiyonlar yer almaktadır (Environment, History). Burada hafızada yer alan nesnelerin bir listesi ve özellikleri ile geçmiş komutların bir listesi yer almaktadır. (örnek olarak aşağıdaki ekran görüntüsüne bakınız; burada "n" ve "z" isimli iki değişken tanımlanmıştır).
+
+**D** penceresi: Sağ alt pencerede ise farklı sekmelerde dosyaların bir listesi ve özellikleri, oluşturulan grafikler, aktif olan paketlerin listesi, yardım dosyaları ve diğer bilgiler yer almaktadır.  
 
 `RStudio` sadece basit bir arayüz olmanın ötesinde karmaşık dokümanlar oluşturulması, yazılım projelerinin geliştirilmesi ve yönetilmesi gibi çok sayıda fonksiyona sahiptir.
 
@@ -112,7 +114,7 @@ Daha yakından bakarsak
 ```{r}
 print(a, digits = 17)
 ```
-bu sonucun tam olarak 81 olmadığını görebiliriz. Bunun nedeni bilgisayardaki ikili sistem temsilindeki (floating point arithmetic) hatadır. Bu işlemde bu hata yaklaşık olarak  
+bu sonucun tam olarak 81 olmadığını görebiliriz. Bunun nedeni bilgisayardaki ikili sistem temsilindeki hatadır. Yukarıdaki işlemde bu hata yaklaşık olarak  
 
 ```{r}
 print(81-a, digits = 17)
@@ -122,7 +124,7 @@ yani $1.4210854715202004\times 10^{-14}$, ya da
 format(81-a, scientific = FALSE)
 ```
 
-kadardır. Bu, çoğu durumda gözardı edilebilse de yaptığınız hesaplamanın amacına bağlı olarak sorun yaratabilir. Örneğin yazdığınız programda bir aritmetik işlemin sonucunu başka bir sonuçla karşılaştırmak istediğinizi düşünelim. Bunun için daha sonra detaylı olarak inceleyeceğimiz mantıksal işlemcileri kullanabiliriz. Örneğin elde ettiğimiz sonucun 81'e eşit olup olmadığını sorgulamak istediğimizi düşünelim: 
+kadardır. Bu hata çoğu durumda gözardı edilebilse de yaptığınız hesaplamanın amacına bağlı olarak sorun yaratabilir. Örneğin yazdığınız programda bir aritmetik işlemin sonucunu başka bir sonuçla karşılaştırmak istediğinizi düşünelim. Bunun için daha sonra detaylı olarak inceleyeceğimiz mantıksal işlemcileri kullanabiliriz. Örneğin elde ettiğimiz sonucun 81'e eşit olup olmadığını sorgulamak istediğimizi düşünelim: 
 ```{r}
 81 == a # boşluksuz iki eşit işareti mantıksal kıyaslama yapar
 ```
